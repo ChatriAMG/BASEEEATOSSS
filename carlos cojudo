@@ -1,0 +1,71 @@
+Selecciona la afirmación correcta:
+A. Las entidades deben tener un AIP (atributo identificador principal, identificador único), y la entidad autores no tiene. Habría que indicar que cod_autor es el AIP de autores, su identificador único.
+B. Las entidades deben tener un AIP (atributo identificador principal, identificador único), y la entidad autores no tiene. Habría que indicar que nombre es el AIP de autores, su identificador único.
+C. Las entidades deben tener un AIP (atributo identificador principal, identificador único), y la entidad autores no tiene. Habría que indicar que apellidos es el AIP de autores, su identificador único.
+D. No es necesario que las entidades tengan un AIP (atributo identificador principal, identificador único). Ya lo indicaremos más adelante.
+respuesta: A
+
+Selecciona la afirmación correcta:
+A. Todos los atributos de la entidad autores son correctos.
+B. La nacionalidad debería ser un atributo compuesto.
+C. Todos los atributos de la entidad autores son incorrectos.
+D. La nacionalidad debería ser una entidad, ya que un autor puede tener varias nacionalidades.
+respuesta: D
+
+
+Selecciona la afirmación correcta:
+A. Falta establecer la cardinalidad de la relación entre autores y libros, que debería ser N:M
+B. Falta establecer la cardinalidad de la relación entre autores y libros, que debería ser 1:1
+C. Falta establecer la cardinalidad de la relación entre autores y libros, que debería ser 1:N
+D. No hace falta establecer la cardinalidad de la relación entre autores y libros porque es compuesta
+respuesta: A
+
+Selecciona la afirmación correcta:
+A. Falta establecer la cardinalidad de la relación entre libros y ejemplares, que debería ser N:M
+B. Falta establecer la cardinalidad de la relación entre libros y ejemplares, que debería ser 1:N
+C. Falta establecer la cardinalidad de la relación entre libros y ejemplares, que debería ser 1:1
+D. No hace falta establecer la cardinalidad de la relación entre libros y ejemplares porque es compuesta
+respuesta: B
+
+Selecciona la afirmación correcta:
+A. Título no puede ser el AIP de la entidad libros.
+B. Título puede ser el AIP de la entidad libros pero no es funcional. Es mejor establecer cod_libro como AIP.
+C. Título puede ser el AIP de la entidad libros pero no es funcional. Es mejor establecer cod_autor como AIP para saber quién ha escrito el libro.
+D. Título no puede ser el AIP de la entidad libros. Es mejor establecer cod_autor y cod_libro como AIP para saber quién ha escrito el libro.
+respuesta: B .
+
+Selecciona la afirmación correcta:
+A. Carlos ha olvidado indicar que ejemplares es una entidad débil.
+B. Carlos ha hecho bien al indicar que ejemplares es una entidad fuerte.
+C. Ejemplares no puede ser una entidad débil.
+D. Ejemplares sería una entidad fuerte si no existiese siempre la entidad libros.
+respuesta: A
+
+
+Selecciona la afirmación correcta:
+A. La fecha de alquiler (fec_alq) y la fecha de devolución (fec_dev) son atributos de la entidad ejemplares. Es correcto.
+B. La fecha de alquiler (fec_alq) y la fecha de devolución (fec_dev) deberían ser atributos de la entidad libros.
+C. La fecha de alquiler (fec_alq) y la fecha de devolución (fec_dev) deben ser atributos de la relación alquilan.
+D. Ninguna es correcta.
+respuesta: C
+
+Selecciona la afirmación correcta:
+A. Falta establecer la cardinalidad de la relación entre socios y ejemplares, que debería ser 1:N
+B. Falta establecer la cardinalidad de la relación entre socios y ejemplares, que debería ser 1:1
+C. Falta establecer la cardinalidad de la relación entre socios y ejemplares, que debería ser N:M
+D. Ninguna es correcta.
+respuesta: C
+
+Selecciona la afirmación correcta:
+A. El atributo dirección (atributo compuesto) está bien representado con una elipse con línea discontinua.
+B. El atributo dirección (atributo compuesto) no está bien representado. Debe ser una elipse con una línea continua, ya que la línea discontinua es para representar atributos derivados.
+C. El atributo dirección (atributo compuesto) no está bien representado. Debe ser una elipse con una línea continua, ya que la línea discontinua es para representar atributos multivaluados.
+D. Ninguna es correcta.
+respuesta: B
+
+La entidad teléfonos no debería existir, pues podríamos guardar los teléfonos de los socios en un atributo de la entidad socios.
+A. Verdadero, porque así evitamos tener otra entidad.
+B. Verdadero, si son del mismo socio.
+C. Falso, ya que necesitamos guardar varios teléfonos de un socio, y cada atributo debe tener un valor único.
+D. Ninguna es correcta.
+respuesta: C
