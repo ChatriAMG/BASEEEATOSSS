@@ -1,0 +1,232 @@
+
+CREATE TABLE Grupo (
+    cod_grupo TINYINT UNSIGNED PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL,
+    biografia VARCHAR(1000);
+);
+-----------------------------------------------------------
+
+INSERT INTO Grupo(nombre, biografia)
+VALUES ('Gustavo Cerati', 'mil caracteres');
+
+======================================================================================================================
+======================================================================================================================
+
+CREATE TABLE Album (
+    cod_album TINYINT PRIMARY KEY UNSIGNED,
+    titulo VARCHAR(150) NOT NULL,
+    fecha_public DATE NOT NULL,
+    cod_grupo TINYINT UNSIGNED,
+    FOREIGN KEY (cod_grupo) REFERENCES Grupo(cod_grupo)
+);
+-----------------------------------------------------------
+
+INSERT INTO Album (titulo, fecha_public, cod_grupo)
+VALUES ('Bocanada', '1999-06-28', 1),
+       ('Siempre es Hoy', '2002-11-26', 1);
+
+======================================================================================================================
+======================================================================================================================
+
+
+CREATE TABLE Canciones (
+    cod_cancion TINYINT UNSIGNED PRIMARY KEY,
+    titulo VARCHAR(150),
+    duracion TIME,
+    cod_genero TINYINT,
+    FOREIGN KEY (cod_genero) REFERENCES Genero(cod_genero)
+);
+-----------------------------------------------------------
+
+
+INSERT INTO Canciones (titulo, duracion, cod_genero) VALUES
+('Tabú', '00:04:41', 1),
+('Engaña', '00:04:43', 1),
+('Bocanada', '00:04:51', 1),
+('Río Babel', '00:04:29', 3),
+('Beautiful', '00:04:36', 3),
+('Verbo Carne', '00:05:00', 1),
+('Raíz', '00:04:35', 1),
+('Alma', '00:04:20', 1),
+('Paseo Inmoral', '00:04:50', 1),
+('Aquí y Ahora', '00:04:10', 3),
+('Puente', '00:04:38', 1),
+('Balsa', '00:04:15', 3);
+
+-----------------------------------------------------------
+
+INSERT INTO Canciones (titulo, duracion, cod_genero) VALUES
+('Cosas Imposibles', '00:03:34', 1),
+('No Te Creo', '00:03:45', 1),
+('Artefacto', '00:03:38', 3),
+('Nací Para Verte', '00:03:50', 1),
+('Tu Cicatriz en Mí', '00:03:42', 1),
+('Karaoke', '00:03:34', 3),
+('Casa', '00:03:40', 1),
+('Sulky', '00:03:55', 1),
+('Especie', '00:03:48', 3),
+('Siempre es Hoy', '00:03:52', 1),
+('Vivo', '00:03:46', 1),
+('Amo Dejarte Así', '00:03:44', 1);
+
+======================================================================================================================
+======================================================================================================================
+ALBUM_CANCIONES / HECHO POR COPILOT: 
+
+-- Bocanada (álbum)
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Tabú'),
+  1;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Engaña'),
+  2;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Bocanada'),
+  3;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Río Babel'),
+  4;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Beautiful'),
+  5;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Verbo Carne'),
+  6;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Raíz'),
+  7;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Alma'),
+  8;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Paseo Inmoral'),
+  9;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Aquí y Ahora'),
+  10;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Puente'),
+  11;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Bocanada'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Balsa'),
+  12;
+
+-----------------------------------------------------------------------------------
+
+
+-- Siempre es Hoy (álbum)
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Cosas Imposibles'),
+  1;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'No Te Creo'),
+  2;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Artefacto'),
+  3;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Nací Para Verte'),
+  4;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Tu Cicatriz en Mí'),
+  5;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Karaoke'),
+  6;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Casa'),
+  7;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Sulky'),
+  8;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Especie'),
+  9;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Siempre es Hoy'),
+  10;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Vivo'),
+  11;
+
+INSERT INTO Album_Cancion (cod_album, cod_cancion, num_cancion)
+SELECT
+  (SELECT cod_album FROM Album WHERE titulo = 'Siempre es Hoy'),
+  (SELECT cod_cancion FROM Canciones WHERE titulo = 'Amo Dejarte Así'),
+  12;
+------------------------------------------------------------------------------------
+
+START TRANSACTION;
+-- (pega aquí todos los INSERT de Album_Cancion)
+COMMIT;
+
+======================================================================================================================
+======================================================================================================================
+
